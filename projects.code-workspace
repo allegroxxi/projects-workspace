@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "name": "Projects Root",
+      "path": "."
+    },
+    {
+      "name": "Context Project",
+      "path": "Context"
+    }
+  ],
+  "settings": {
+    "python.analysis.extraPaths": [
+      "./Context/src"
+    ]
+  }
+}
