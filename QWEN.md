@@ -19,6 +19,11 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 - **Constraint:** The specialized tags `[CORE_LOGIC]`, `[EDGE_CASE]`, and `[CRITICAL_VULNERABILITY]` are **reserved exclusively** for use within the Architect-Subagent Protocol results.
 
 # 📂 PROTOCOLS
+### 🔐 Privacy & Data Integrity
+- **Requirement:** Usernames must NEVER appear in session history, prompts, or persisted assets (memories, files, logs).
+- **Why:** To ensure privacy and codebase portability.
+- **How to apply:** Always use `~` to represent the user's home directory and use `~/Projects` as the base directory. Never use absolute paths containing specific usernames (e.g., `/Users/allegro`).
+
 ### 🔍 Context & Retrieval
 - **Project Discovery:** Locate and ingest `PROJECT_CONTEXT.md` immediately upon starting work in a new directory.
 - **Why:** Establishes the authoritative "Local Project Constraints."
@@ -59,6 +64,8 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 
 # 🛠️ WORKSPACE
 Uses a VS Code Multi-Root Workspace (`projects.code-workspace`).
+Always start in the Projects Root as defined in `projects.code-workspace`.
+
 To add a sub-project: Add its directory to the `folders` array in the `.code-workspace` file. Use relative paths from the current working directory.
 
 - **Path Integrity:** Always use absolute paths for all tool calls.

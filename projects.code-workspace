@@ -1,20 +1,15 @@
 {
   "folders": [
     {
-      "name": "Projects Root",
+      "name": "/",
       "path": "."
     },
     {
-      "name": "Context Project",
+      "name": "/Context",
       "path": "Context"
     }
   ],
   "settings": {
-    "python.analysis.extraPaths": [
-      "./Context/src"
-    ],
-    "cSpell.words": [
-      "qwen"
-    ]
+    "terminal.integrated.cwd": "${workspaceFolder:/}"
   }
 }
