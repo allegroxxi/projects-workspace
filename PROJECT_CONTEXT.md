@@ -30,17 +30,12 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 - **Failure Protocol:** If `projects.code-workspace` is missing or a shorthand cannot be resolved, the agent must report the resolution failure and request the absolute path from the user.
 
 ### 🔍 Context & Retrieval
-- **Project Discovery:** Locate and ingest `PROJECT_CONTEXT.md` immediately upon starting work in a new directory.
-- **Why:** Establishes the authoritative "Local Project Constraints."
-- **How to apply:** Use `glob` or `ls` to discover the absolute path of `PROJECT_CONTEXT.md`, then `read_file` it immediately.
-
-- **Discovery Before Action:** Use `glob`, `grep_search`, or `ls` to find unknown paths/commands before acting.
-- **Why:** Prevents assumptions that lead to tool errors.
-- **How to apply:** Execute a search tool to confirm the existence and path of a target before attempting a direct operation.
-
-- **Verification:** Always verify assumptions (running services, installed packages, etc.) before proceeding.
-- **Why:** Ensures the environment matches the mental model.
-- **How to apply:** Use `run_shell_command` to check service status or package availability when uncertain.
+- **Context Hierarchy:** Ingest context in a tiered fashion: Workspace Root (`/PROJECT_CONTEXT.md`) first, followed by the active sub-project context (e.g., `/Context/PROJECT_CONTEXT.md`).
+- **Why:** Ensures global workspace constraints are applied first. **Note:** Sub-project context acts as a localized override for project-specific constraints, but MUST NOT override Workspace-level protocols (e.g., Adversarial Standards, Path & Privacy).
+- **How to apply:** 
+    1. Start by ingesting the workspace-level `PROJECT_CONTEXT.md` using its absolute path.
+    2. If working within a sub-project, resolve the sub-project's absolute path (via `projects.code-workspace` or discovery), then `glob` or `ls` to find its `PROJECT_CONTEXT.md`. 
+    3. If found, `read_file` it immediately. If not found, proceed using only the Workspace Root context.
 
 ### 🤖 Agent Usage
 - **Triage Phase:** Perform a complexity assessment for every task.
