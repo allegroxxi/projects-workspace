@@ -82,12 +82,8 @@ Evaluate task complexity to select the appropriate execution path:
     3. **Synthesize Standards:** Promote durable, project-wide patterns and decisions into `QWEN.md` to ensure long-term consistency and visibility.
     4. **Integrity & Distillation:** Ensure all synthesized text is complete and non-truncated. Apply a distillation pass to prevent redundancy, circularity, or information bloat.
 
-# 🛠️ WORKSPACE
-Uses a VS Code Multi-Root Workspace (`projects.code-workspace`).
-Always start in the Projects Root as defined in `projects.code-workspace`.
+# 🛠️ TOOLS
+- [tools](TOOLS.md) — Reference for all available commands, scripts, and operational protocols.
 
-To add a sub-project: Add its directory to the `folders` array in the `.code-workspace` file. Use relative paths from the current working directory.
-
-- **Path Integrity:** Always use absolute paths for all tool calls.
-- **Why:** Prevents errors caused by varying working directory contexts.
-- **How to apply:** Always resolve relative paths against the project root before passing them to `read_file`, `write_file`, or `edit`.
+# 🏗️ ARCHITECTURE
+- [architecture](ARCHITECTURE.md) — Defines the project's Onion Architecture pattern and layer responsibilities.
