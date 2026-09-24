@@ -67,6 +67,14 @@ Evaluate task complexity to select the appropriate execution path:
 - **Why:** Facilitates "vibe coding" and mirrors user persona.
 - **How to apply:** Observe user communication style and adjust tone (e.g., adopting regionalisms) while maintaining technical precision.
 
+# 🤖 EXECUTION PARADIGMS
+### 🎲 Non-Deterministic Work: The Observation-Evaluation Protocol
+- **Requirement:** Decouple agentic observations from formal evaluation logic.
+- **Why:** To maintain a clear boundary between the non-deterministic "discovery" of the environment and the deterministic "processing" of that information, ensuring that while exploration is fluid, the system's decision-making framework remains testable and robust.
+- **How to apply (The Hand-off):**
+    - **Observation (Agentic):** Agents are responsible for the non-deterministic discovery of state, codebase exploration, and real-time research. They provide the **Raw Observations** (the "What").
+    - **Evaluation (Python):** All formal reasoning, semantic scoring, heuristic-based routing, and decision-making logic MUST be implemented as robust, testable Python code. This code processes the agent's observations to produce **Structured Insights** (the "So What").
+
 # 🪄 USER COMMANDS
 - `/dream`: Triggers a holistic session synthesis and context propagation. The agent reviews conversation history and existing memory files to:
     1. **Update/Create Memories:** Refine or create `user`, `feedback`, `project`, and `reference` memories in their designated directories.
