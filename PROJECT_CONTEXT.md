@@ -25,7 +25,7 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 - **Privacy (Persisted Assets):** Usernames must NEVER appear in session history, prompts, or persisted assets (memories, files, logs, or final outputs). Use `~` to represent the user's home directory and `~/Projects` as the base directory.
 - **Operational Paths (Thinking/Tooling):** When resolving paths for tool execution (e.g., `read_file`), agents MUST use full absolute paths. It is acceptable for these paths to exist within the agent's internal thinking context/history as a requirement of tool accuracy.
 - **Shorthand (Communication Only):** Use project-based shorthands in chat and prompts for brevity and portability.
-    - **Syntax:** Use `/` for the **Workspace Root** and `/[ProjectName]` for specific sub-projects (e.g., `/Context`).
+    - **Syntax:** Use `/` for the **Workspace Root** and `/[ProjectName]` for specific sub-projects (e.g., `/writing`).
     - **Resolution:** To resolve shorthand to a physical path, the agent **must** consult the `projects.code-workspace` file.
     - **Zero-Tolerance for Tool Calls:** Never use shorthand in a command or tool request. All tool calls **MUST** utilize the full absolute paths resolved via the workspace configuration.
 - **Failure Protocol:** If `projects.code-workspace` is missing or a shorthand cannot be resolved, the agent must report the resolution failure and request the absolute path from the user.
@@ -33,9 +33,9 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 ### 🔍 Context & Retrieval
 - **Context Hierarchy:** Ingest context in a tiered fashion: Workspace Root (`/PROJECT_CONTEXT.md`) first, followed by the active sub-project context (e.g., `/Context/PROJECT_CONTEXT.md`).
 - **Why:** Ensures global workspace constraints are applied first. **Note:** Sub-project context acts as a localized override for project-specific constraints, but MUST NOT override Workspace-level protocols (e.g., Adversarial Standards, Path & Privacy).
-- **How to apply:** 
+- **How to apply:**
     1. Start by ingesting the workspace-level `PROJECT_CONTEXT.md` using its absolute path.
-    2. If working within a sub-project, resolve the sub-project's absolute path (via `projects.code-workspace` or discovery), then `glob` or `ls` to find its `PROJECT_CONTEXT.md`. 
+    2. If working within a sub-project, resolve the sub-project's absolute path (via `projects.code-workspace` or discovery), then `glob` or `ls` to find its `PROJECT_CONTEXT.md`.
     3. If found, `read_file` it immediately. If not found, proceed using only the Workspace Root context.
 
 ### 🤖 Agent Usage
@@ -48,12 +48,7 @@ Evaluate task complexity to select the appropriate execution path:
 - **High-Complexity:** Initiate the **Optimized Agentic Orchestration Workflow (v2)**.
 
 #### **Optimized Agentic Orchestration Workflow (v2)**
-| Phase | Name | Action |
-| :--- | :--- | :--- |
-| **1** | **Decomposition** | CoT decomposition into DAG; assign **File-Level Ownership** to sub-agents. |
-| **2** | **Parallel Execution** | Spawn specialized sub-agents. **Relay:** Use distilled findings via tags; use **Drill-Down** (full transcripts) only for ambiguity. |
-| **3** | **Red-Teaming** | Architect synthesizes draft. **Review:** Specialized Reviewer with contrarian persona performs adversarial pass. |
-| **4** | **Verification** | Atomic application $\rightarrow$ Project-standard lint/test $\rightarrow$ Outcome reporting. |
+See [Agentic Orchestration Standards](/standards/agent_protocols.md).
 
 ### 🔄 Sub-Agent Ownership & Synchronization
 - **Requirement:** Mandatory for all High-Complexity tasks.
@@ -61,7 +56,6 @@ Evaluate task complexity to select the appropriate execution path:
 - **Constraint:** Only the assigned owner may propose modifications to that path. Ownership must strictly map **File Paths $\leftrightarrow$ Agent Roles** and adhere to the `Path & Privacy Protocol`.
 - **Format:** Use GitHub-flavored Markdown.
 - **Why:** Ensures universal compatibility and structural predictability for both humans and LLMs.
-- **How to apply:** Adhere to standard Markdown syntax for all responses, maintaining strict header hierarchies and list structures.
 
 - **Style:** Adaptive. Lead with outcomes, but weave in the user's linguistic patterns and cultural "vibe."
 - **Why:** Facilitates "vibe coding" and mirrors user persona.
@@ -69,16 +63,12 @@ Evaluate task complexity to select the appropriate execution path:
 
 # 🤖 EXECUTION PARADIGMS
 ### 🎲 Non-Deterministic Work: The Observation-Evaluation Protocol
-- **Requirement:** Decouple agentic observations from formal evaluation logic.
-- **Why:** To maintain a clear boundary between the non-deterministic "discovery" of the environment and the deterministic "processing" of that information, ensuring that while exploration is fluid, the system's decision-making framework remains testable and robust.
-- **How to apply (The Hand-off):**
-    - **Observation (Agentic):** Agents are responsible for the non-deterministic discovery of state, codebase exploration, and real-time research. They provide the **Raw Observations** (the "What").
-    - **Evaluation (Python):** All formal reasoning, semantic scoring, heuristic-based routing, and decision-making logic MUST be implemented as robust, testable Python code. This code processes the agent's observations to produce **Structured Insights** (the "So What").
+See [Observation-Evaluation Standards](/standards/observation_evaluation.md).
 
 # 🪄 USER COMMANDS
 - `/dream`: Triggers a holistic session synthesis and context propagation. The agent reviews conversation history and existing memory files to:
     1. **Update/Create Memories:** Refine or create `user`, `feedback`, `project`, and `reference` memories in their designated directories.
-    2. **Propagate Context:** Identify the most relevant `PROJECT_CONTEXT.md` (e.g., the current sub-project's context or the workspace root) based on the active working directory. Synthesize and *augment* existing entries with high-value operational knowledge, technical constraints, or architectural decisions, ensuring nuanced information is preserved.
+    2. **Propagate Context:** Identify the most relevant `PROJECT_CONTEXT.md` (e.g., the current sub-project's context or the workspace root) and augment it with high-value operational knowledge, technical constraints, or architectural decisions, ensuring nuanced information is preserved.
     3. **Synthesize Standards:** Promote durable, project-wide patterns and decisions into `QWEN.md` to ensure long-term consistency and visibility.
     4. **Integrity & Distillation:** Ensure all synthesized text is complete and non-truncated. Apply a distillation pass to prevent redundancy, circularity, or information bloat.
 
