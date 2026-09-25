@@ -31,11 +31,11 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 - **Failure Protocol:** If `projects.code-workspace` is missing or a shorthand cannot be resolved, the agent must report the resolution failure and request the absolute path from the user.
 
 ### 🔍 Context & Retrieval
-- **Context Hierarchy:** Ingest context in a tiered fashion: Workspace Root (`/PROJECT_CONTEXT.md`) first, followed by the active sub-project context (e.g., `/Context/PROJECT_CONTEXT.md`).
+- **Context Hierarchy:** Ingest context in a tiered fashion: Workspace Root (`/project-context.md`) first, followed by the active sub-project context (e.g., `/Context/project-context.md`).
 - **Why:** Ensures global workspace constraints are applied first. **Note:** Sub-project context acts as a localized override for project-specific constraints, but MUST NOT override Workspace-level protocols (e.g., Adversarial Standards, Path & Privacy).
 - **How to apply:**
-    1. Start by ingesting the workspace-level `PROJECT_CONTEXT.md` using its absolute path.
-    2. If working within a sub-project, resolve the sub-project's absolute path (via `projects.code-workspace` or discovery), then `glob` or `ls` to find its `PROJECT_CONTEXT.md`.
+    1. Start by ingesting the workspace-level `project-context.md` using its absolute path.
+    2. If working within a sub-project, resolve the sub-project's absolute path (via `projects.code-workspace` or discovery), then `glob` or `ls` to find its `project-context.md`.
     3. If found, `read_file` it immediately. If not found, proceed using only the Workspace Root context.
 
 ### 🤖 Agent Usage
@@ -64,10 +64,3 @@ See [Agentic Orchestration Standards](/standards/agent_protocols.md).
 # 🤖 EXECUTION PARADIGMS
 ### 🎲 Non-Deterministic Work: The Observation-Evaluation Protocol
 See [Observation-Evaluation Standards](/standards/observation_evaluation.md).
-
-# 🪄 USER COMMANDS
-- `/dream`: Triggers a holistic session synthesis and context propagation. The agent reviews conversation history and existing memory files to:
-    1. **Update/Create Memories:** Refine or create `user`, `feedback`, `project`, and `reference` memories in their designated directories.
-    2. **Propagate Context:** Identify the most relevant `PROJECT_CONTEXT.md` (e.g., the current sub-project's context or the workspace root) and augment it with high-value operational knowledge, technical constraints, or architectural decisions, ensuring nuanced information is preserved.
-    3. **Synthesize Standards:** Promote durable, project-wide patterns and decisions into `QWEN.md` to ensure long-term consistency and visibility.
-    4. **Integrity & Distillation:** Ensure all synthesized text is complete and non-truncated. Apply a distillation pass to prevent redundancy, circularity, or information bloat.
