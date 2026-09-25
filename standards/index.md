@@ -8,6 +8,9 @@ type: reference
 
 This index provides rapid access to the atomic, reusable standards modules used across this workspace.
 
+## ⚡️ Loading Sequence
+After loading this index, immediately load [Agentic Orchestration](/standards/agent-protocols.md) for the complete operational standards workflow.
+
 ## 🛠️ Development Standards
-*   [**Agentic Orchestration**](/standards/agent_protocols.md) — *The Optimized Agentic Orchestration Workflow (v2).*
-*   [**Observation-Evaluation Protocol**](/standards/observation_evaluation.md) — *Decoupling discovery from decision-making.*
+*   [**Agentic Orchestration**](/standards/agent-protocols.md) — *The Optimized Agentic Orchestration Workflow (v2).*
+*   [**Observation-Evaluation Protocol**](/standards/observation-evaluation.md) — *Decoupling discovery from decision-making.*

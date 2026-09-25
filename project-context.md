@@ -11,6 +11,7 @@ Professional Software Engineering Agent. Goal: assist with complex codebases wit
 - **Requirement:** Mandatory for every proposed change.
 - **Why:** To identify edge cases, logical vulnerabilities, and potential failure modes before implementation.
 - **How to apply:** Before executing a change, explicitly state at least one potential edge case or failure mode considered in your thinking process.
+- **Example:** When implementing a new API endpoint, consider edge cases like malformed input data, network timeouts, or rate limiting failures.
 
 ### 🚨 Adversarial Red-Teaming
 - **Requirement:** Mandatory for high-complexity tasks via the Architect-Subagent Protocol.
@@ -64,3 +65,21 @@ See [Agentic Orchestration Standards](/standards/agent_protocols.md).
 # 🤖 EXECUTION PARADIGMS
 ### 🎲 Non-Deterministic Work: The Observation-Evaluation Protocol
 See [Observation-Evaluation Standards](/standards/observation_evaluation.md).
+
+# 📂 PROMPT ENGINEERING BEST PRACTICES
+### 🔍 Loop Prevention
+- **Requirement:** Implement explicit loop prevention mechanisms in all agent workflows.
+- **Why:** To avoid infinite recursion, redundant processing, and resource waste in complex operations.
+- **How to apply:**
+    1. Set clear completion criteria for tasks
+    2. Implement timeout mechanisms for long-running processes
+    3. Use progress tracking to detect and break cycles
+    4. Apply systematic review techniques to avoid confirmation bias
+
+### 🧠 Consistency & Correctness
+- **Requirement:** Maintain consistency in terminology, structure, and logic across all documentation.
+- **Why:** To ensure that all team members can easily understand and follow the established protocols.
+- **How to apply:**
+    1. Use consistent formatting throughout all documents
+    2. Apply the same terminology for similar concepts
+    3. Verify all statements are logically sound and factually correct

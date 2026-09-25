@@ -1,5 +1,5 @@
 ---
-name: DOCS_INDEX.md
+name: index.md
 description: Master directory for workspace documentation.
 type: reference
 ---
@@ -9,7 +9,7 @@ type: reference
 This is the central entry point for all documentation within the workspace. Use this index to navigate the project's governance, architecture, and tooling.
 
 ## 🏛️ Core Governance
-*   [**Project Context & Persona**](/project_context.md) — *Core roles, adversarial standards, and project identity.*
+*   [**Project Context & Persona**](/project-context.md) — *Core roles, adversarial standards, and project identity.*
 *   [**Operational Standards**](/standards/index.md) — *Atomic modules for editing, agents, and execution protocols.*
 
 ## 🏗️ Technical Architecture
