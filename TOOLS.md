@@ -10,7 +10,6 @@ description: Reference for all available commands, scripts, and operational prot
 
 | Command | Purpose | Key Parameters/Flags | Example Usage |
 | :--- | :--- | :--- | :--- |
-| `/dream` | Performs holistic session synthesis and context propagation. | None | `/dream` |
 | `/review` | Reviews code for correctness, security, quality, and performance. | `--effort [low\|medium\|high]`, `--fix` | `/review src/file.py --effort high` |
 | `/simplify` | Cleans up recent code changes for reuse and efficiency. | `--focus [target]` | `/simplify` |
 | `/batch` | Executes batch operations on multiple files in parallel. | `[operation] [pattern]` | `/batch replace pattern` |
@@ -29,7 +28,6 @@ description: Reference for all available commands, scripts, and operational prot
 
 | Command | Purpose | Key Parameters/Flags | Example Usage |
 | :--- | :--- | :--- | :--- |
-| `/dream` | Performs holistic session synthesis and context propagation. | None | `/dream` |
 | `/review` | Reviews code for correctness, security, quality, and performance. | `--effort [low\|medium\|high]`, `--fix` | `/review src/file.py --effort high` |
 | `/simplify` | Cleans up recent code changes for reuse and efficiency. | `--focus [target]` | `/simplify` |
 | `/batch` | Executes batch operations on multiple files in parallel. | `[operation] [pattern]` | `/batch replace pattern` |
