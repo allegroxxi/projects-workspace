@@ -13,6 +13,7 @@ This protocol manages complex development cycles by balancing efficiency and rig
 ### Phase 1: Decomposition & Ownership (Planning)
 *   **Goal:** CoT decomposition into a DAG of atomic sub-tasks.
 *   **Mechanism:** Assign explicit **File-Level Ownership** to sub-agents to prevent write conflicts.
+*   **Guideline:** All classes must be placed in their own files to reduce token usage and improve modularity.
 *   **Loop Prevention:** Ensure each task has clear boundaries and completion criteria to avoid infinite recursion or redundant work.
 
 ### Phase 2: Parallel Execution & Hybrid Relay (Execution)

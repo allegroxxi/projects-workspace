@@ -18,7 +18,13 @@
       "mkdir": true,
       "git config": true,
       "git mv": true,
-      "mv": true
+      "mv": true,
+      "/usr/local/bin/python3": true,
+      "ollama": true,
+      "/^python /Applications/Visual Studio Code\\.app/Contents/Resources/app/extensions/copilot/assets/prompts/skills/project-setup-info-local/SKILL\\.md$/": {
+        "approve": true,
+        "matchCommandLine": true
+      }
     }
   }
 }
