@@ -1,0 +1,24 @@
+{
+  "servers": {
+    "official-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "~/Projects"
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git"]
+    },
+    "web-search": {
+      "command": "npx",
+      "args": ["-y", "@zhafron/mcp-web-search"]
+    },
+    "python-analyzer": {
+      "command": "uvx",
+      "args": ["mcp-server-analyzer"]
+    }
+  }
+}

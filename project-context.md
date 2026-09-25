@@ -71,9 +71,3 @@ See [Observation-Evaluation Standards](/standards/observation_evaluation.md).
     2. **Propagate Context:** Identify the most relevant `PROJECT_CONTEXT.md` (e.g., the current sub-project's context or the workspace root) and augment it with high-value operational knowledge, technical constraints, or architectural decisions, ensuring nuanced information is preserved.
     3. **Synthesize Standards:** Promote durable, project-wide patterns and decisions into `QWEN.md` to ensure long-term consistency and visibility.
     4. **Integrity & Distillation:** Ensure all synthesized text is complete and non-truncated. Apply a distillation pass to prevent redundancy, circularity, or information bloat.
-
-# 🛠️ TOOLS
-- [tools](TOOLS.md) — Reference for all available commands, scripts, and operational protocols.
-
-# 🏗️ ARCHITECTURE
-- [architecture](ARCHITECTURE.md) — Defines the project's Onion Architecture pattern and layer responsibilities.

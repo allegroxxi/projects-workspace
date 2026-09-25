@@ -13,6 +13,12 @@
     "terminal.integrated.cwd": "${workspaceFolder:/}",
     "cSpell.words": [
       "worktree"
-    ]
+    ],
+    "chat.tools.terminal.autoApprove": {
+      "mkdir": true,
+      "git config": true,
+      "git mv": true,
+      "mv": true
+    }
   }
 }
